@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
 
 function fetchinfo(chat_id, auto)
 {
+    bot.sendMessage(chat_id,"Sending...")
     const url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=835301&date=06-06-2021"
     axios.get(url)
     .then((response)=>{
@@ -36,8 +37,6 @@ function fetchinfo(chat_id, auto)
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
     fetchinfo(chat_id,0);
-    bot.sendMessage(chat_id,"Recieved...")
-    console.log(msg);
 })
 
 cron.schedule('*/1 * * * *', () => {
