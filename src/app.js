@@ -40,6 +40,7 @@ function fetchinfo(chat_id, auto)
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
     fetchinfo(chat_id,0);
+    bot.sendMessage(chat_id,"Recieved...")
     console.log(msg);
 })
 
