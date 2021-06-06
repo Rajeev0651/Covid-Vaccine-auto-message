@@ -43,12 +43,12 @@ bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
     const url = "https://webhook.site/b4b81a09-8bf3-42c8-b1a6-a2be0cee1dc0"
     bot.sendMessage(chat_id,"Sending...")
-    axios.get(url)
-    .then((response)=>{
-        data = response.data.sessions[0]
-        const message = "Name : "+data.name+"\n"+"Address : "+ data.address+"\n"+"State : "+data.state_name+"\n"+"District : "+data.district_name+"\n"+"Pincode : "+data.pincode+"\n"+"Fees Type: "+data.fee_type+"\n"+"Fees : "+data.fee+"\n"+"Dose 1 : "+data.available_capacity_dose1+"\n"+"Dose 2 : "+data.available_capacity_dose2+"\n"+"Minimum age : "+ data.min_age_limit+"\n"+"Vaccine : "+data.vaccine+"\n"+"Slots : "+data.slots[0]+" | "+data.slots[1]+" | "+data.slots[2]+" | "+data.slots[3];
-        bot.sendMessage(chat_id,message)
-    })
+    // axios.get(url)
+    // .then((response)=>{
+    //     data = response.data.sessions[0]
+    //     const message = "Name : "+data.name+"\n"+"Address : "+ data.address+"\n"+"State : "+data.state_name+"\n"+"District : "+data.district_name+"\n"+"Pincode : "+data.pincode+"\n"+"Fees Type: "+data.fee_type+"\n"+"Fees : "+data.fee+"\n"+"Dose 1 : "+data.available_capacity_dose1+"\n"+"Dose 2 : "+data.available_capacity_dose2+"\n"+"Minimum age : "+ data.min_age_limit+"\n"+"Vaccine : "+data.vaccine+"\n"+"Slots : "+data.slots[0]+" | "+data.slots[1]+" | "+data.slots[2]+" | "+data.slots[3];
+    //     bot.sendMessage(chat_id,message)
+    // })
     //fetchinfo(chat_id,0);
 })
 
@@ -70,7 +70,3 @@ bot.on('message',(msg)=>{
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
-module.exports = function(app) {
-    // add other server routes to path array
-    app.use(proxy(['/api' ], { target: `http://localhost:${port}` }));
-}
