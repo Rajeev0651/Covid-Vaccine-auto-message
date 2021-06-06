@@ -11,7 +11,8 @@ const user_data = require('../data/user.json')
 
 const app = express()
 app.use(cors())
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
+const host = '0.0.0.0'
 const token = process.env.TELEGRAM_TOKEN
 // Creating a bot to fetch new updates
 const bot = new TelegramBot(token, {polling:true});
@@ -69,6 +70,6 @@ bot.on('message',(msg)=>{
 //     })
 //     res.send('done!')
 // })
-app.listen(port, () => {
+app.listen(port, host,() => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
