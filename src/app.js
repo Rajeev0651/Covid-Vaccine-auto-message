@@ -4,6 +4,10 @@ const cron = require('node-cron')
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios').default;
 require('dotenv').config()
+const Promise = require('bluebird');
+Promise.config({
+  cancellation: true
+});
 
 const user_data = require('../data/user.json')
 
