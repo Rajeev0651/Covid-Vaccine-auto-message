@@ -2,6 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const cron = require('node-cron')
 const proxy = require('http-proxy-middleware')
+process.env.NTBA_FIX_319 = 1;
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios').default;
 require('dotenv').config()
