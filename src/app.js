@@ -2,7 +2,6 @@ const express = require('express')
 const cors = require('cors')
 const cron = require('node-cron')
 const proxy = require('http-proxy-middleware')
-process.env.NTBA_FIX_319 = 1;
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios').default;
 require('dotenv').config()
@@ -10,9 +9,7 @@ require('dotenv').config()
 const user_data = require('../data/user.json')
 
 const app = express()
-app.use(cors())
 const port = process.env.PORT || 5000
-const host = '0.0.0.0'
 const token = process.env.TELEGRAM_TOKEN
 // Creating a bot to fetch new updates
 const bot = new TelegramBot(token, {polling:true});
@@ -42,7 +39,6 @@ function fetchinfo(chat_id, auto)
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
     const url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=835301&date=06-06-2021"
-    bot.sendMessage(chat_id,"Sending...")
     axios.get(url)
     .then((response)=>{
         //data = response.data.sessions[0]
@@ -69,6 +65,6 @@ bot.on('message',(msg)=>{
 //     })
 //     res.send('done!')
 // })
-app.listen(port, host,() => {
+app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
