@@ -42,6 +42,7 @@ function fetchinfo(chat_id, auto)
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
     const url = "https://webhook.site/b4b81a09-8bf3-42c8-b1a6-a2be0cee1dc0"
+    bot.sendMessage(chat_id,"Sending...")
     axios.get(url)
     .then((response)=>{
         data = response.data.sessions[0]
