@@ -1,10 +1,11 @@
+const Promise = require('bluebird');
+const TelegramBot = require('node-telegram-bot-api');
 const express = require('express')
 const cors = require('cors')
 const cron = require('node-cron')
-const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios').default;
 require('dotenv').config()
-const Promise = require('bluebird');
+
 Promise.config({
   cancellation: true
 });
