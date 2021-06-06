@@ -40,7 +40,7 @@ function fetchinfo(chat_id, auto)
 
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
-    const url = "https://webhook.site/b4b81a09-8bf3-42c8-b1a6-a2be0cee1dc0"
+    const url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=835301&date=06-06-2021"
     bot.sendMessage(chat_id,"Sending...")
     axios.get(url)
     .then((response)=>{
