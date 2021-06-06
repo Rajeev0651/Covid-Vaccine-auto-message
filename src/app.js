@@ -32,6 +32,9 @@ function fetchinfo(chat_id, auto)
         else  if(auto==0)
             bot.sendMessage(chat_id,message)
     })
+    .catch((err)=>{
+        bot.sendMessage(chat_id,err)
+    })
 }
 
 bot.on('message',(msg)=>{
