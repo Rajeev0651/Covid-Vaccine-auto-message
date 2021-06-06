@@ -41,7 +41,7 @@ function fetchinfo(chat_id, auto)
 
 bot.on('message',(msg)=>{
     const chat_id = msg.chat.id;
-    const url = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=835301&date=06-06-2021"
+    const url = "https://webhook.site/b4b81a09-8bf3-42c8-b1a6-a2be0cee1dc0"
     axios.get(url)
     .then((response)=>{
         data = response.data.sessions[0]
@@ -71,5 +71,5 @@ app.listen(port, () => {
 })
 module.exports = function(app) {
     // add other server routes to path array
-    app.use(proxy(['/api' ], { target: 'http://localhost:5000' }));
+    app.use(proxy(['/api' ], { target: `http://localhost:${port}` }));
 }
