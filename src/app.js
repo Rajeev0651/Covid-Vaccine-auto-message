@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const cron = require('node-cron')
+const proxy = require('http-proxy-middleware')
 const TelegramBot = require('node-telegram-bot-api');
 const axios = require('axios').default;
 require('dotenv').config()
@@ -65,7 +66,10 @@ cron.schedule('*/1 * * * *', () => {
 //     })
 //     res.send('done!')
 // })
-
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+module.exports = function(app) {
+    // add other server routes to path array
+    app.use(proxy(['/api' ], { target: 'http://localhost:5000' }));
+}
