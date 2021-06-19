@@ -10,7 +10,9 @@ const token = process.env.TELEGRAM_TOKEN
 
 const date = "20-06-2021"
 const pincode = "835301"
+// Get update every 'period' second
 const period = 5 // second
+const Chat_ID = 1093404804
 
 // Creating a bot to fetch new updates
 const bot = new TelegramBot(token, {polling:true});
@@ -79,7 +81,7 @@ bot.on('message',(msg)=>{
 
 cron.schedule(`*/${period} * * * * *`, () => {
     console.log(`Run every ${period} second`);
-    interval_fetchinfo(chat_id = 1093404804);
+    interval_fetchinfo(chat_id = Chat_ID);
   })
 
 app.listen(port, () => {
